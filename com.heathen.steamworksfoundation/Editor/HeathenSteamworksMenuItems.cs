@@ -28,7 +28,8 @@ namespace HeathenEngineering.SteamworksIntegration.Editors
             if (listProc.Status == StatusCode.Success)
             {
                 if (listProc.Result.Any(p => p.name == "com.heathen.steamworksfoundation"))
-                    needsRemove = true;
+                //cause an issue when installed so i just fix it to false for now
+                    needsRemove = false;
             }
             else
                 Debug.LogError("Failed to check Package Manager dependencies: " + listProc.Error.message);
